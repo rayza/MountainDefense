@@ -26,11 +26,10 @@ void APlayerCharacter::BeginPlay()
 void APlayerCharacter::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
-	if (!OrbitCenter.IsNearlyZero())
-	{
-		FRotator LookAtRotator = UKismetMathLibrary::FindLookAtRotation(GetActorLocation(),OrbitCenter);
-		GetController()->SetControlRotation(LookAtRotator);
-	}
+	
+	FRotator LookAtRotator = UKismetMathLibrary::FindLookAtRotation(GetActorLocation(),OrbitCenter);
+	GetController()->SetControlRotation(LookAtRotator);
+	SetActorRotation(LookAtRotator);
 }
 
 // Called to bind functionality to input
