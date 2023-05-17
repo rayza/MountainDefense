@@ -31,9 +31,15 @@ public:
 	UPROPERTY(BlueprintReadWrite)
 	FVector OrbitCenter;
 
-	UPROPERTY(BlueprintReadWrite)
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
+	float DistanceToSurface = 1000;
+
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 	float OrbitingScale = 0.5;
 
-	UPROPERTY(BlueprintReadWrite)
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 	float MoveVerticallyScale = 15;
+
+	UPROPERTY(BlueprintReadWrite)
+	AActor* Mountain;
 };
