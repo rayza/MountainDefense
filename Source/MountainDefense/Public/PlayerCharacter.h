@@ -6,6 +6,8 @@
 #include "GameFramework/Character.h"
 #include "PlayerCharacter.generated.h"
 
+DECLARE_LOG_CATEGORY_EXTERN(LogPlayerCharacter, Log, All);
+
 UCLASS()
 class MOUNTAINDEFENSE_API APlayerCharacter : public ACharacter
 {
@@ -35,11 +37,15 @@ public:
 	float DistanceToSurface = 1000;
 
 	UPROPERTY(BlueprintReadWrite, EditAnywhere)
-	float OrbitingScale = 0.5;
+	float OrbitingScale = 40.0;
 
 	UPROPERTY(BlueprintReadWrite, EditAnywhere)
-	float MoveVerticallyScale = 15;
+	float MoveVerticallyScale = 500.0;
 
 	UPROPERTY(BlueprintReadWrite)
 	AActor* Mountain;
+
+private:
+	float RotateLeftRightAmount;
+	float MoveVerticallyAmount;
 };
